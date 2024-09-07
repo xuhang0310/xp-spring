@@ -14,4 +14,5 @@ public @interface Component {
 
     String value() default "";
 
+    String property() default "single";
 }
