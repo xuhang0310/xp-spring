@@ -11,7 +11,13 @@ public class TestMySpring {
 
         UserService userService2 = (UserService) xpApplicationContext.getBean("userService");
 
+        UserService userService3 = (UserService) xpApplicationContext.getBean("userService");
+
         System.out.println(userService);
         System.out.println(userService2);
+        System.out.println(userService3);
+
+
+        userService3.test();
     }
 }

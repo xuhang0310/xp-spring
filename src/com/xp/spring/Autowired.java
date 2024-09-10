@@ -9,8 +9,8 @@ import java.lang.annotation.Target;
  * @author xupei
  */
 @Retention(RetentionPolicy.RUNTIME)
-@Target(ElementType.TYPE)
-public @interface Component {
+@Target(ElementType.FIELD)
+public @interface Autowired {
 
     String value() default "";
 
