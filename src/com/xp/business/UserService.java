@@ -2,9 +2,10 @@ package com.xp.business;
 
 import com.xp.spring.Autowired;
 import com.xp.spring.Component;
+import com.xp.spring.InitializingBean;
 
 @Component
-public class UserService {
+public class UserService implements InitializingBean {
 
     @Autowired
     private OrderService orderService;
@@ -18,4 +19,8 @@ public class UserService {
         System.out.println(orderService1);
     }
 
+    @Override
+    public void afterPropertiesSet() {
+        System.out.println("afterPropertiesSet-------");
+    }
 }

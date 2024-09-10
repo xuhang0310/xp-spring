@@ -44,7 +44,6 @@ public class XpApplicationContext {
                     if(childClasses.isAnnotationPresent(Scope.class)){
                         beandefinition.setScope(childClasses.getAnnotation(Scope.class).value());
                     }
-
                     beanDefinitionsMap.put(getBeanName(childClasses), beandefinition);
                 }
             }
@@ -69,6 +68,11 @@ public class XpApplicationContext {
                     declaredField.setAccessible(true);
                     declaredField.set(instance,autowiredBean);
                 }
+            }
+
+            if (instance instanceof InitializingBean) {
+                ((InitializingBean) instance).afterPropertiesSet();
+
             }
             return instance;
         } catch (InstantiationException | IllegalAccessException e) {
